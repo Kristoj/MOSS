@@ -13,6 +13,10 @@ public class Weapon : MonoBehaviour {
     [SerializeField] private float projectileLifetime = 5f;
     [SerializeField] private Vector3 projectileSpawnOffset;
     [SerializeField] private LayerMask hitMask;
+
+    [Header("FX")]
+    [SerializeField] private Transform shootVFX;
+
     private float nextPossibleShootTime;
     private float lastAttackId = 0;
 
@@ -30,13 +34,23 @@ public class Weapon : MonoBehaviour {
         // Firerate. Calculate when we can shoot next 
         nextPossibleShootTime = Time.time + (60 / rateOfFire);
 
-        /* FX START */
+        // Play shooting animation
         float rng = lastAttackId;
         while (rng == lastAttackId) {
             rng = (int)Random.Range(0, 3);
         }
         lastAttackId = rng;
         GameManager.LocalPlayer.Player_ViewModelAnimator.PlayAction(rng);
+
+        // Play shooting sound
+        SoundSystem.PlaySound2D("blaster_shoot01");
+
+        // Shooting VFX
+        if (shootVFX != null) {
+            Transform vfxClone = Instantiate(shootVFX, transform.position + transform.TransformDirection(projectileSpawnOffset), 
+                                    GameManager.LocalPlayer.Player_Camera.MainCamera.transform.rotation);
+            vfxClone.SetParent(transform);
+        }
     }
 
     bool CanShoot {

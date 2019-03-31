@@ -45,15 +45,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
-  rateOfFire: 350
+  rateOfFire: 500
   projectile: {fileID: 7775265181121753502, guid: 36807798c931c1a479947a4d39d4de27,
     type: 3}
-  projectileSpeed: 50
+  projectileSpeed: 150
   projectileLifetime: 5
   projectileSpawnOffset: {x: 0, y: 0.06, z: 0.18}
   hitMask:
     serializedVersion: 2
     m_Bits: 1
+  shootVFX: {fileID: 4868219259746455494, guid: 6d939ac4525d3904b8a5da45f26d0e3b,
+    type: 3}
 --- !u!1 &8043323048020642265
 GameObject:
   m_ObjectHideFlags: 0
