@@ -21,7 +21,7 @@ public class ViewModelAnimator : MonoBehaviour {
     void UpdateLocomotion() {
         Vector2 velocity = new Vector2(GameManager.LocalPlayer.Player_Controller.velocity.x, GameManager.LocalPlayer.Player_Controller.velocity.z);
         locomotionSpeed = Mathf.MoveTowards(locomotionSpeed, velocity.magnitude / GameManager.LocalPlayer.Player_Controller.moveSpeed, 2.2f * Time.deltaTime);
-        animator.SetFloat("moveSpeed", locomotionSpeed);
+        animator.SetFloat("velocity", locomotionSpeed);
     }
 
     public void PlayAction(float actionId) {
