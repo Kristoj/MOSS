@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34db35fa7a074d347b08c693bba2c161, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impactSound: {fileID: 0}
 --- !u!114 &4904196974603684083
 MonoBehaviour:
   m_ObjectHideFlags: 0
