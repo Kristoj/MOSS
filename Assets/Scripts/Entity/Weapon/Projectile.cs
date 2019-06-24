@@ -50,11 +50,17 @@ public class Projectile : MonoBehaviour {
         Destroy(gameObject);
     }
 
-    public void SetupProjectile(float projectileDamage, float projectileSpeed, float projectileLifetime, LayerMask projectileHitMask) {
+    public void SetupProjectile(float projectileDamage, float projectileSpeed, float projectileRange, LayerMask projectileHitMask) {
         this.projectileDamage = projectileDamage;
         this.projectileSpeed = projectileSpeed;
         this.projectileHitMask = projectileHitMask;
-        this.projectileLifetime = projectileLifetime;
+        this.projectileLifetime = projectileRange / projectileSpeed;
+    }
+
+    public void SetupProjectile(float projectileSpeed, Vector3 hitPos) {
+        this.projectileDamage = 0;
+        this.projectileSpeed = projectileSpeed;
+        this.projectileLifetime = Vector3.Distance(transform.position, hitPos) / projectileSpeed;
     }
 
 }

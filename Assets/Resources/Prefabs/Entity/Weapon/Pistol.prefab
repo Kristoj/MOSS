@@ -46,15 +46,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   rateOfFire: 450
+  isHitScan: 1
   projectile: {fileID: 2524623660139835637, guid: e617dfb064bc19a43b1c2421eff80033,
     type: 3}
-  projectileSpeed: 80
-  projectileLifetime: 5
+  projectileRange: 100
+  projectileSpeed: 600
   projectileSpawnOffset: {x: 0, y: 0, z: 0}
   hitMask:
     serializedVersion: 2
     m_Bits: 1
   shootVFX: {fileID: 0}
+  impactFleshVFX: {fileID: 3851235419937488451, guid: 711f3f761e98c7c42872699b65af2014,
+    type: 3}
+  impactDefaultVFX: {fileID: 0}
 --- !u!1 &6675520003799570248
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,7 +120,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 766d623d9f9ae774f9c5eba8bf68ccaf,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 766d623d9f9ae774f9c5eba8bf68ccaf,
         type: 3}
@@ -126,12 +130,12 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 766d623d9f9ae774f9c5eba8bf68ccaf,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 766d623d9f9ae774f9c5eba8bf68ccaf,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071067
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 766d623d9f9ae774f9c5eba8bf68ccaf,
         type: 3}

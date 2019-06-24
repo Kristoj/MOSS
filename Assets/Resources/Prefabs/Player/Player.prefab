@@ -118,7 +118,7 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   groundAcceleration: 150
   groundDeacceleration: 9
-  airAcceleration: 40
+  airAcceleration: 95
   gravity: 33
   isGrounded: 0
 --- !u!114 &1578391567
@@ -152,17 +152,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewModelOffset: {x: 0.015, y: 0.06, z: -0.11}
-  mouseSwayRange: {x: 0.07, y: 0.07}
-  mouseSwaySpeed: {x: 0.05, y: 0.05}
+  mouseSwayRange: {x: 0.08, y: 0.08}
+  mouseSwaySpeed: {x: -0.06, y: -0.06}
   mouseSwayReturnSpeed: {x: 10, y: 10}
-  movementSwayRange: {x: 0.05, y: 0.05, z: 0.05}
-  movementSwaySpeed: {x: 0.05, y: 0.05, z: 0.05}
+  movementSwayRange: {x: 0.06, y: 0.06, z: 0.06}
+  movementSwaySpeed: {x: 0.06, y: 0.06, z: 0.06}
   movementSwayReturnSpeed: {x: 7, y: 7, z: 7}
-  mouseTiltRange: {x: 3, y: 3, z: 3}
-  mouseTiltSpeed: {x: 1, y: 1, z: 1}
+  mouseTiltRange: {x: 4, y: 4, z: 4}
+  mouseTiltSpeed: {x: -2, y: -2, z: -2}
   mouseTiltReturnSpeed: {x: 5, y: 5, z: 5}
-  movementTiltRange: {x: 3, y: 3, z: 3}
-  movementTiltSpeed: {x: 1, y: 1, z: 1}
+  movementTiltRange: {x: 4, y: 4, z: 4}
+  movementTiltSpeed: {x: 2, y: 2, z: 2}
   movementTiltReturnSpeed: {x: 5, y: 5, z: 5}
   mouseTiltVector: {x: 0.000002796871, y: 0.0000110620485, z: 0.0000110620485}
   movementTiltVector: {x: -9.8508674e-27, y: 2.7959213e-29, z: -2.7959213e-29}
@@ -756,7 +756,13 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: -8378514245527006202, guid: 8e6992901591d8e4d91ec852ef342691,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9b9f7e8c3a382ef4ba18eb4bae6c3628, type: 2}
+    m_RemovedComponents:
+    - {fileID: -6057140222963153312, guid: 8e6992901591d8e4d91ec852ef342691, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8e6992901591d8e4d91ec852ef342691, type: 3}
 --- !u!4 &4543472713310203393 stripped
 Transform:

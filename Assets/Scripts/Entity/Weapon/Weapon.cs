@@ -8,14 +8,17 @@ public class Weapon : MonoBehaviour {
     [SerializeField] private float rateOfFire = 666f;
 
     [Header("Projectile Settings")]
+    [SerializeField] private bool isHitScan = true;
     [SerializeField] private Projectile projectile;
+    [SerializeField] private float projectileRange = 50f;
     [SerializeField] private float projectileSpeed = 70f;
-    [SerializeField] private float projectileLifetime = 5f;
     [SerializeField] private Vector3 projectileSpawnOffset;
     [SerializeField] private LayerMask hitMask;
 
     [Header("FX")]
     [SerializeField] private Transform shootVFX;
+    [SerializeField] private Transform impactFleshVFX;
+    [SerializeField] private Transform impactDefaultVFX;
 
     private float nextPossibleShootTime;
     private float lastAttackId = 0;
@@ -24,12 +27,42 @@ public class Weapon : MonoBehaviour {
         if (!CanShoot) {
             return;
         }
-
-        // Spawn projectile
+        
         Vector3 projectileSpawnPosition = transform.position + transform.TransformDirection(projectileSpawnOffset);
-        Projectile clone = Instantiate(projectile, projectileSpawnPosition, 
-                           GameManager.LocalPlayer.Player_Camera.MainCamera.transform.rotation);
-        clone.SetupProjectile(damage, projectileSpeed, projectileLifetime, hitMask);
+
+        // Hitscan weapon
+        if (isHitScan) {
+            Ray ray = new Ray(GameManager.LocalPlayer.Player_Camera.MainCamera.transform.position, GameManager.LocalPlayer.Player_Camera.MainCamera.transform.forward);
+            RaycastHit hit;
+            LivingEntity le = null;
+            if (Physics.Raycast(ray, out hit, projectileRange, hitMask, QueryTriggerInteraction.Collide)) {
+                le = hit.collider.GetComponent<LivingEntity>();
+                // If we hit a living entity, apply damage and spawn a dummy projectile
+                if (le != null) {
+                    le.TakeDamage(damage);
+                }
+
+                // Impact audio
+                SoundSystem.PlaySound("impact_flesh01", hit.point);
+
+                // Impact fx
+                Transform impactVfx = le == null ? impactDefaultVFX : impactFleshVFX;
+                if (impactVfx != null)
+                    Instantiate(impactVfx, hit.point, Quaternion.identity);
+            }
+            
+            Projectile dummyClone = Instantiate(projectile, projectileSpawnPosition, 
+            GameManager.LocalPlayer.Player_Camera.MainCamera.transform.rotation);
+            dummyClone.SetupProjectile(projectileSpeed, hit.collider != null ? hit.point : GameManager.LocalPlayer.transform.forward * projectileRange);
+        }
+
+        // Projectile weapon
+        else {
+            // Spawn projectile
+            Projectile clone = Instantiate(projectile, projectileSpawnPosition, 
+                            GameManager.LocalPlayer.Player_Camera.MainCamera.transform.rotation);
+            clone.SetupProjectile(damage, projectileSpeed, projectileRange, hitMask);
+        }
 
         // Firerate. Calculate when we can shoot next 
         nextPossibleShootTime = Time.time + (60 / rateOfFire);
