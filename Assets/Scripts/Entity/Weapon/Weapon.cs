@@ -15,6 +15,9 @@ public class Weapon : MonoBehaviour {
     [SerializeField] private Vector3 projectileSpawnOffset;
     [SerializeField] private LayerMask hitMask;
 
+    [Header("Visuals")]
+    public Vector3 weaponViewModelOffset = new Vector3(0, 0, 0);
+
     [Header("FX")]
     [SerializeField] private Transform shootVFX;
     [SerializeField] private Transform impactFleshVFX;
@@ -27,8 +30,10 @@ public class Weapon : MonoBehaviour {
         if (!CanShoot) {
             return;
         }
-        
-        Vector3 projectileSpawnPosition = transform.position + transform.TransformDirection(projectileSpawnOffset);
+
+        Vector3 projectilePredictionVector = GameManager.LocalPlayer.Player_Controller.velocity.normalized *
+                                    GameManager.LocalPlayer.Player_Controller.moveSpeed * Time.deltaTime;
+        Vector3 projectileSpawnPosition = transform.position + projectilePredictionVector + transform.TransformDirection(projectileSpawnOffset);
 
         // Hitscan weapon
         if (isHitScan) {

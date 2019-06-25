@@ -3,7 +3,6 @@
 public class WeaponSystem : MonoBehaviour {
 
     [SerializeField] private Weapon[] weaponSlots = new Weapon[2];
-    [SerializeField] private Weapon equippedWeapon;
 
     // Right socket
     [SerializeField] private Transform _socketR;
@@ -33,6 +32,16 @@ public class WeaponSystem : MonoBehaviour {
         }
     }
 
+    [SerializeField] private Weapon _equippedWeapon;
+    public Weapon EquippedWeapon {
+        get {
+            return _equippedWeapon;
+        }
+        set {
+            _equippedWeapon = value;
+        }
+    }
+
     void Start() {
         FindDependecies();
         // Spawn starting weapon ?
@@ -58,16 +67,16 @@ public class WeaponSystem : MonoBehaviour {
         }
 
         // If we already have a weapon equipped, destroy it
-        if (equippedWeapon != null) {
-            DestroyWeapon(equippedWeapon);
+        if (EquippedWeapon != null) {
+            DestroyWeapon(EquippedWeapon);
         }
         SpawnWeapon(weaponToEquip);     
     }
 
     // Spawns the weapon in the socket player equips a weapon
     void SpawnWeapon(Weapon weaponToSpawn) {
-        equippedWeapon = Instantiate(weaponToSpawn, SocketR.transform.position, SocketR.transform.rotation);
-        equippedWeapon.transform.SetParent(SocketR);
+        EquippedWeapon = Instantiate(weaponToSpawn, SocketR.transform.position, SocketR.transform.rotation);
+        EquippedWeapon.transform.SetParent(SocketR);
     }
 
     // Destroys the given weapon, but doesn't unassign weapons from weapon slots
@@ -81,8 +90,8 @@ public class WeaponSystem : MonoBehaviour {
     void CheckInput() {
 
         // Shooting
-        if (Input.GetButton("Fire1") && equippedWeapon != null) {
-            equippedWeapon.Shoot();
+        if (Input.GetButton("Fire1") && EquippedWeapon != null) {
+            EquippedWeapon.Shoot();
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1)) {

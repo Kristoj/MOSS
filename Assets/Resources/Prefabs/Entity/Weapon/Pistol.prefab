@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6675520003735433446}
   - component: {fileID: 6675520003735433445}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Pistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,11 +50,12 @@ MonoBehaviour:
   projectile: {fileID: 2524623660139835637, guid: e617dfb064bc19a43b1c2421eff80033,
     type: 3}
   projectileRange: 100
-  projectileSpeed: 600
-  projectileSpawnOffset: {x: 0, y: 0, z: 0}
+  projectileSpeed: 300
+  projectileSpawnOffset: {x: 0, y: 0.13, z: 0.25}
   hitMask:
     serializedVersion: 2
     m_Bits: 1
+  weaponViewModelOffset: {x: 0, y: 0, z: 0}
   shootVFX: {fileID: 0}
   impactFleshVFX: {fileID: 3851235419937488451, guid: 711f3f761e98c7c42872699b65af2014,
     type: 3}
@@ -68,7 +69,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6675520003799570255}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,6 +102,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pistol
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 766d623d9f9ae774f9c5eba8bf68ccaf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 766d623d9f9ae774f9c5eba8bf68ccaf,
         type: 3}
@@ -156,6 +162,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502203975881118265, guid: 766d623d9f9ae774f9c5eba8bf68ccaf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469484624682501897, guid: 766d623d9f9ae774f9c5eba8bf68ccaf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695666576454475813, guid: 766d623d9f9ae774f9c5eba8bf68ccaf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 766d623d9f9ae774f9c5eba8bf68ccaf, type: 3}

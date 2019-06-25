@@ -4,7 +4,7 @@ using UnityEngine;
 public class WeaponSway : MonoBehaviour {
 
     [Header("Viewmodel Settings")]
-    [SerializeField] private Vector3 viewModelOffset;
+    [SerializeField] private Vector3 globalViewModelOffset;
 
     [Header("Mouse Sway")]
     [SerializeField] private Vector2 mouseSwayRange = new Vector2(.07f, .07f);
@@ -119,7 +119,9 @@ public class WeaponSway : MonoBehaviour {
 
     void ApplySocketOrientation() {
         Transform viewModel = GameManager.LocalPlayer.Player_ViewModel;
-        viewModel.transform.localPosition = viewModelOffset + mouseSwayVector + movementSwayVector;
+        Vector3 offset = GameManager.LocalPlayer.Player_WeaponSystem.EquippedWeapon != null ? 
+            GameManager.LocalPlayer.Player_WeaponSystem.EquippedWeapon.weaponViewModelOffset : Vector3.zero;
+        viewModel.transform.localPosition = globalViewModelOffset + offset + mouseSwayVector + movementSwayVector;
         viewModel.transform.localRotation = Quaternion.Euler(mouseTiltVector + movementTiltVector);
     }
 
