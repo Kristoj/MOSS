@@ -511,7 +511,7 @@ PrefabInstance:
     - target: {fileID: 1575805601806776673, guid: cf61b72daba13514e8c5ff2f51077841,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1575805601806776687, guid: cf61b72daba13514e8c5ff2f51077841,
         type: 3}
@@ -577,6 +577,11 @@ PrefabInstance:
         type: 3}
       propertyPath: acceleration
       value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1575805601806776684, guid: cf61b72daba13514e8c5ff2f51077841,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf61b72daba13514e8c5ff2f51077841, type: 3}
@@ -1074,11 +1079,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tortured_Soul (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 1575805601806776673, guid: cf61b72daba13514e8c5ff2f51077841,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1575805601806776687, guid: cf61b72daba13514e8c5ff2f51077841,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1133,16 +1133,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1575805601806776686, guid: cf61b72daba13514e8c5ff2f51077841,
-        type: 3}
-      propertyPath: moveSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1575805601806776686, guid: cf61b72daba13514e8c5ff2f51077841,
-        type: 3}
-      propertyPath: acceleration
-      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf61b72daba13514e8c5ff2f51077841, type: 3}
@@ -1237,6 +1227,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3851235419937488449, guid: 711f3f761e98c7c42872699b65af2014,
+        type: 3}
+      propertyPath: m_Name
+      value: Gibs_Flesh
+      objectReference: {fileID: 0}
     - target: {fileID: 3851235419937488451, guid: 711f3f761e98c7c42872699b65af2014,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1291,11 +1286,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3851235419937488449, guid: 711f3f761e98c7c42872699b65af2014,
-        type: 3}
-      propertyPath: m_Name
-      value: Gibs_Flesh
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 711f3f761e98c7c42872699b65af2014, type: 3}
